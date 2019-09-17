@@ -7,7 +7,7 @@ function bright(){
 
 DIR=$( cd "$( dirname "$0" )" && pwd )   		# get script dir
 if [ "$UID" -ne 0 ]; then                		# check if you are root
-    	Password="Qasxcv123456"
+    	Password="UserPassword"
 	echo $Password |sudo -S $DIR/bright_up.sh	# NOT: run script with sudo
 else
     bright                                  		# YES: run function
