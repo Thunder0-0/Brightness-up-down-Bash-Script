@@ -5,10 +5,12 @@ function bright(){
 	echo $((bright-(1))) | sudo tee /sys/class/backlight/acpi_video0/brightness
 }
 
-DIR=$( cd "$( dirname "$0" )" && pwd )   		# get script dir
+DIR=$( cd "$( dirname "$0" )" && pwd )   		# get script's dir
+Password="UserPassword"					# password of user
+
 if [ "$UID" -ne 0 ]; then                		# check if you are root
-    	Password="UserPassword"
-	echo $Password |sudo -S $DIR/bright_down.sh	# NOT: run script with sudo
+
+	echo $Password |sudo -S $DIR/bright_down.sh	# run script with sudo
 else
-    bright                                  		# YES: run function
+    bright                                  		# run function
 fi
